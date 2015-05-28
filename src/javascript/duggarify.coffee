@@ -7,6 +7,7 @@ Duggarify =
         name = @name_map[name]
       return "Michelle" if name is "michelle"
       return "Cousin Amy" if name is "amy"
+      return "Grandma" if name is "grandma"
       name = name[1..-1]
     else if @vowel(name)
       name = name
@@ -39,6 +40,7 @@ Duggarify =
     "jim": "jim Bob"
     "michelle": "michelle"
     "amy": "amy"
+    "grandma": "grandma"
     "john": "john-David"
     "joseph": "joseph"
     "josiah": "josiah"
@@ -62,6 +64,7 @@ Duggarify =
     "jim Bob"
     "michelle"
     "amy"
+    "grandma"
     "joshua"
     "john-David"
     "joseph"
@@ -86,6 +89,7 @@ Duggarify =
   firsts: [
     "jim"
     "michelle"
+    "grandma"
     "amy"
     "joshua"
     "john"
