@@ -12,7 +12,7 @@ $('.name_form').on 'submit', ->
     $('input').focus()
     return false
   name = Duggarify.name name
-  if name is "Josh" or name is "Joshua"
+  if name is "Josh Bob" or name is "Joshua Bob"
     $('.num').text("You should probably get")
     $('.last').text("a different name.")
     $('.name_container').addClass 'small'
