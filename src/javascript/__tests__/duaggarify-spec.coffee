@@ -52,9 +52,6 @@ describe 'Duggarify', ->
     it "lacey", ->
       name = "lacey"
       Duggarify.name(name).should.eq "Jacey"
-    it "josh", ->
-      name = "josh"
-      Duggarify.name(name).should.eq "Josh"
     it "johannah", ->
       name = "johannah"
       Duggarify.name(name).should.eq "Johannah Faith"

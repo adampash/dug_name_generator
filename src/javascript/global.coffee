@@ -4,7 +4,7 @@ $ = require 'jquery'
 Duggarify = require './duggarify'
 
 name = ""
-post_url = "http://gawker.com"
+post_url = "http://gawker.com/whats-your-duggar-name-1707464686"
 $('.name_form').on 'submit', ->
   name = $(@).find('input').val()
   $('input').blur()
@@ -12,7 +12,14 @@ $('.name_form').on 'submit', ->
     $('input').focus()
     return false
   name = Duggarify.name name
-  $('.num').text name
+  if name is "Josh" or name is "Joshua"
+    $('.num').text("You should probably get")
+    $('.last').text("a different name.")
+    $('.name_container').addClass 'small'
+  else
+    $('.num').text name
+    $('.last').text("Duggar")
+    $('.name_container').removeClass 'small'
   $('.big_j').addClass 'spin'
   setTimeout ->
     $('#content').addClass 'done'
@@ -34,7 +41,7 @@ $('.facebook').on 'click', ->
   title = encodeURIComponent ""
   text = encodeURIComponent "My Duggar name is #{name} Duggar! What's yours?"
   app_id = "1619332488296427"
-  url = "https://www.facebook.com/dialog/feed?description=#{description}&picture=#{picture}&name=#{text}&link=#{encodeURIComponent post_url}&app_id=#{app_id}&display=popup&redirect_uri=#{encodeURIComponent post_url}"
+  url = "https://www.facebook.com/dialog/feed?description=#{description}&picture=#{picture}&name=#{text}&link=#{encodeURIComponent post_url}&app_id=#{app_id}&display=page&redirect_uri=#{encodeURIComponent post_url}"
   window.open url
 
 $('.twitter').on 'click', ->

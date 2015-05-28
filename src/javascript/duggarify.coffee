@@ -1,7 +1,7 @@
 Duggarify =
   name: (name) ->
     orig = name
-    name = name.toLowerCase()
+    name = name.toLowerCase().trim()
     if @exists(name)
       if name in @firsts
         name = @name_map[name]
