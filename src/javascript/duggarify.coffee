@@ -14,7 +14,7 @@ Duggarify =
     else if @double_cons(name)
       name = "'#{name[1..-1]}"
     else if @j_start(name)
-      name = "#{orig[1..-1]}"
+      name = "#{orig[1..-1]} Bob"
     else
       name = name[1..-1]
     "J#{name}"
