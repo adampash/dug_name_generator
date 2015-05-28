@@ -20,7 +20,7 @@ $('.name_form').on 'submit', ->
     $('.num').text name
     $('.last').text("Duggar")
     $('.name_container').removeClass 'small'
-  $('.big_j').addClass 'spin'
+  $('.big_j span').addClass 'spin'
   setTimeout ->
     $('#content').addClass 'done'
   , 2000
@@ -33,6 +33,7 @@ $('.name_form').on 'submit', ->
 $('.start_over').on 'click', ->
   $('.done').removeClass('done')
   $('.spin').removeClass('spin')
+  $('.big_j span').removeClass 'spin'
   $('input').val('').focus()
 
 $('.facebook').on 'click', ->

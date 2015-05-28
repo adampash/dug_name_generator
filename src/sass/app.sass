@@ -151,6 +151,14 @@ h3, h2
   100%
     font-size: 0px
 
+@include keyframes(big-font-mobile)
+  0%
+    font-size: 0px
+  50%
+    font-size: 400px
+  100%
+    font-size: 0px
+
 #content.done
   .result_container
     display: block
@@ -194,6 +202,8 @@ h3, h2
     display: block
 
 @media screen and (max-width : 480px)
+  .spin
+    @include animation('infinite-spinning 0.3s infinite linear, big-font-mobile 2.5s linear')
   #content
     padding: 25px 10px
     h3
