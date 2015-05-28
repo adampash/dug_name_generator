@@ -1,0 +1,206 @@
+@import scss-mixins
+@import typography
+@import icons
+@import iframes
+@import animate
+
+body
+  margin: 0
+  padding: 0
+
+html
+  box-sizing: border-box
+
+*, *:before, *:after
+  box-sizing: inherit
+  margin: 0
+  padding: 0
+
+h3, h2
+  font-weight: normal
+
+#content
+  background: #231f20
+  width: 100%
+  max-width: 800px
+  height: 355px
+  padding: 25px 40px
+  font-family: ProximaNovaCond-Semibold
+  font-weight: normal
+  position: relative
+
+  .form_container
+    position: absolute
+    left: 0
+    width: 100%
+  .result_container
+    width: 100%
+    position: absolute
+    left: 0
+    h2, .num, .last, .start_over
+      opacity: 0
+      -webkit-transform: scale(0.2)
+      -ms-transform: scale(0.2)
+      transform: scale(0.2)
+
+  h3
+    color: white
+    font-family: ProximaNovaCond-Normal
+    text-transform: uppercase
+    text-align: center
+    font-size: 15px
+    letter-spacing: 1.25px
+    border-bottom: 1px solid white
+    padding-bottom: 7px
+  h2
+    color: white
+    text-align: center
+    font-size: 34px
+    letter-spacing: 0.85px
+    margin-top: 20px
+  div.num, div.last
+    color: #cb262a
+  input, .name_container
+    height: 180px
+  .num, .last
+    height: 52px
+  input, .num, .last
+    background: transparent
+    outline: none
+    text-align: center
+    width: 100%
+    padding-top: 5px
+    color: white
+    // color: #cb262a
+    font-size: 60px
+    font-family: ProximaNovaCond-Semibold
+    border: none
+    &::placeholder
+      color: #333333
+    &:focus
+      &::placeholder
+        color: transparent
+
+  button
+    transition:all 0.8s ease
+    cursor: pointer
+    font-family: ProximaNovaCond-Semibold
+    font-size: 20px
+    text-align: center
+    margin: -5px auto
+    display: block
+    box-shadow: 8px 8px 0px #cb262a
+    background: white
+    outline: none
+    border: 1px solid #231f20
+    width: auto
+    padding: 5px 10px
+    &:hover
+      box-shadow: 8px 8px 0px white
+      background: #cb262a
+      color: white
+
+.big_j
+  position: absolute
+  top: 120px
+  line-height: 20px
+  margin: 0 auto
+  color: white
+  font-size: 0px
+  text-align: center
+  // display: none
+  width: 100%
+  max-width: 800px
+  font-family: ProximaNovaCond-Semibold
+
+.spin
+  display: inline-block
+  @include animation('infinite-spinning 0.3s infinite linear, big-font 2.5s linear')
+
+@include keyframes(infinite-spinning)
+  0%
+    -webkit-transform: rotate(0deg)
+    -ms-transform: rotate(0deg)
+    transform: rotate(0deg)
+  100%
+    -webkit-transform: rotate(360deg)
+    -ms-transform: rotate(360deg)
+    transform: rotate(360deg)
+
+@include keyframes(big-font)
+  0%
+    font-size: 0px
+  50%
+    font-size: 2200px
+  100%
+    font-size: 0px
+
+#content.done
+  .result_container
+    display: block
+  h2, .num, .last, button.start_over
+    transition:all 0.8s ease
+    @include animation('fade-in 1s forwards')
+    -webkit-transform: scale(1)
+    -ms-transform: scale(1)
+    transform: scale(1)
+  label h2
+    @include animation('slide-left 1s forwards')
+  button.submit
+    display: none
+  input
+    transition:all 1s ease
+    @include animation('fade-out 1s forwards')
+    -webkit-transform: scale(0.3)
+    -ms-transform: scale(0.3)
+    transform: scale(0.3)
+.big_j.done
+  opacity: 0
+
+
+@include keyframes(slide-left)
+  0% { margin-left: 0 }
+  100% { margin-left: -1500px; display: none }
+
+@include keyframes(fade-out)
+  0%
+    opacity: 1
+  100%
+    opacity: 0
+    display: none
+
+@include keyframes(fade-in)
+  0%
+    opacity: 0
+    display: block
+  100%
+    opacity: 1
+    display: block
+
+@media screen and (max-width : 480px)
+  #content
+    padding: 25px 10px
+    h3
+      font-size: 11px
+      padding-bottom: 20px
+    h2
+      font-size: 20px
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)
+  .foo
+    width: 0
+  .icon
+    display: inline-block
+    margin: 0 5px
+
+
+@font-face
+  font-family: 'ProximaNovaCond-Semibold';src: url('http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondBold-6e302c8978b1bd9d453fba318a1fa572.woff')
+
+@font-face
+  font-family: 'ProximaNovaCond-Normal';src: url('http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondNormal-30ea31cbd1e9632c6002a58b4eeb233f.woff')
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button
+  -webkit-appearance: none
+  margin: 0
